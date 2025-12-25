@@ -42,7 +42,7 @@
   v(0.5cm)
 
   // set type title
-  block(text(size: 48pt, font: "STXingkai", [博士学位论文]))
+  block(text(size: 48pt, font: "STXingkai", [硕士学位论文]))
 }
 
 #let chinese-cover-title(title: "") = {
@@ -178,7 +178,7 @@
 
   show: show-cn-fakebold
 
-  block(text(size: font-size.small-two, font: font-type.hei, distr("博士学位论文", 11em), lang: "cn"))
+  block(text(size: font-size.small-two, font: font-type.hei, distr("硕士学位论文", 11em), lang: "cn"))
 
   v(80pt)
 
@@ -343,7 +343,7 @@
     summit: "",
     defense: "",
   ),
-  degree: (zh: "工学博士", en: "Doctor of Philosophy"),
+  degree: (zh: "工学硕士", en: "Doctor of Philosophy"),
   lib-number: "",
   stu-id: "",
   is-print: false,

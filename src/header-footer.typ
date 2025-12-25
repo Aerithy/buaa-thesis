@@ -56,7 +56,7 @@
     return [
       #show: show-header
 
-      北京航空航天大学博士学位论文
+      北京航空航天大学硕士学位论文
       #line(length: 100%, stroke: 0.5pt)
     ]
   }

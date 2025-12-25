@@ -55,7 +55,7 @@
   }
 
   if achievement != [] {
-    [= 攻读博士学位期间取得的成果]
+    [= 攻读硕士学位期间取得的成果]
     achievement
 
     if acknowledgements != [] or cv != [] {
@@ -96,7 +96,7 @@
     summit: "",
     defense: "",
   ),
-  degree: (zh: "工学博士", en: "Doctor of Philosophy"),
+  degree: (zh: "工学硕士", en: "Doctor of Philosophy"),
   lib-number: "",
   stu-id: "",
   abstract: [],

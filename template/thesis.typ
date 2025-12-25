@@ -13,19 +13,19 @@
 ]
 
 #show: thesis.with(
-  title: (zh: "博士生毕业论文的题目", en: "A Title for PhD Thesis"),
-  author: (zh: "张三", en: "San Zhang"),
-  teacher: (zh: "李四", en: "Si Li"),
+  title: (zh: "硕士生毕业论文的题目", en: "A Title for Master Thesis"),
+  author: (zh: "李云潼", en: "Li Yun Tong"),
+  teacher: (zh: "肖利民", en: "Xiao Limin"),
   teacher-degree: (zh: "教授", en: "Prof."),
   college: (zh: "计算机学院", en: "School of Computer Science and Engineering"),
   major: (
     discipline: "计算机体系结构",
-    direction: "模型分布式训练",
+    direction: "模型分布式训练通信优化",
     discipline-first: "计算机科学与技术",
     discipline-direction: "计算机体系结构",
   ),
   date: (
-    start: "2021年09月01日",
+    start: "2023年09月01日",
     end: "2026年06月30日",
     summit: "2026年06月10日",
     defense: "2026年06月10日",
@@ -40,14 +40,14 @@
     参与了多个开源项目的开发，
   ],
   acknowledgements: [
-    感谢我的导师李四教授的指导和支持
+    感谢我的导师肖利民教授的指导和支持
 
     感谢我的家人和朋友的鼓励和帮助
   ],
   cv: [
-    2021年09月 - 2026年06月：北京航空航天大学，计算机科学与技术专业，博士研究生
+    2023年09月 - 2026年06月：北京航空航天大学，计算机科学与技术专业，硕士研究生
 
-    2017年09月 - 2021年06月：北京航空航天大学，计算机科学与技术专业
+    2019年09月 - 2023年06月：北京交通大学，计算机科学与技术专业
   ],
 )
 
