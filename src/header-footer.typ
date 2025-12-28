@@ -1,6 +1,28 @@
 #import "constant.typ": font-size, font-type
 #import "utils.typ": heading-numbering
 
+#let degree-text(degree-type) = {
+  if degree-type == "master" {
+    (
+      zh: "硕士",
+      zh-student: "硕士研究生",
+      zh-thesis: "硕士学位论文",
+      zh-achievement: "攻读硕士学位期间取得的成果",
+      en: "Master",
+    )
+  } else if degree-type == "doctor" {
+    (
+      zh: "博士",
+      zh-student: "博士研究生",
+      zh-thesis: "博士学位论文",
+      zh-achievement: "攻读博士学位期间取得的成果",
+      en: "Doctor",
+    )
+  } else {
+    panic("degree-type must be 'master' or 'doctor'")
+  }
+}
+
 #let leading-footer() = {
   set align(center)
   set text(size: font-size.five, font: font-type.sun, lang: "cn")
@@ -49,14 +71,15 @@
   ]
 }
 
-#let main-header() = context {
+#let main-header(degree-type: "master") = context {
+  let dt = degree-text(degree-type)
   let page-number = here().page()
 
   if calc.odd(page-number) {
     return [
       #show: show-header
 
-      北京航空航天大学博士学位论文
+      北京航空航天大学#dt.zh-thesis
       #line(length: 100%, stroke: 0.5pt)
     ]
   }

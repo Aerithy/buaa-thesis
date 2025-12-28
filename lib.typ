@@ -8,6 +8,28 @@
 #import "src/utils.typ": heading-numbering, reset-page, sub-fig
 #import "src/algorithm.typ": *
 
+#let degree-text(degree-type) = {
+  if degree-type == "master" {
+    (
+      zh: "硕士",
+      zh-student: "硕士研究生",
+      zh-thesis: "硕士学位论文",
+      zh-achievement: "攻读硕士学位期间取得的成果",
+      en: "Master",
+    )
+  } else if degree-type == "doctor" {
+    (
+      zh: "博士",
+      zh-student: "博士研究生",
+      zh-thesis: "博士学位论文",
+      zh-achievement: "攻读博士学位期间取得的成果",
+      en: "Doctor",
+    )
+  } else {
+    panic("degree-type must be 'master' or 'doctor'")
+  }
+}
+
 #let abstract-render(abstract: [], abstract-en: []) = {
   if abstract != [] {
     abstract
@@ -44,7 +66,10 @@
   achievement: [],
   acknowledgements: [],
   cv: [],
+  degree-type: "master",
 ) = {
+  let dt = degree-text(degree-type)
+
   if bibliography != none {
     [= 参考文献]
     bib(bibliography: bibliography)
@@ -55,7 +80,7 @@
   }
 
   if achievement != [] {
-    [= 攻读博士学位期间取得的成果]
+    [= #dt.zh-achievement]
     achievement
 
     if acknowledgements != [] or cv != [] {
@@ -96,7 +121,8 @@
     summit: "",
     defense: "",
   ),
-  degree: (zh: "工学博士", en: "Doctor of Philosophy"),
+  degree: (zh: "工学硕士", en: "Master of Engineering"),
+  degree-type: "master",  // 学位类型：master 或 doctor
   lib-number: "",
   stu-id: "",
   abstract: [],
@@ -119,9 +145,11 @@
     college: college,
     major: major,
     date: date,
+    degree: degree,
     lib-number: lib-number,
     stu-id: stu-id,
     is-print: is-print,
+    degree-type: degree-type,
   )
 
   reset-page()
@@ -134,7 +162,7 @@
 
   reset-page()
 
-  show: page.with(header: main-header(), footer: main-footer())
+  show: page.with(header: main-header(degree-type: degree-type), footer: main-footer())
 
   [
     #show: show-main
@@ -148,6 +176,7 @@
       achievement: achievement,
       acknowledgements: acknowledgements,
       cv: cv,
+      degree-type: degree-type,
     )
   ]
 }

@@ -41,9 +41,31 @@
   ),
 )
 
+#let degree-text(degree-type) = {
+  if degree-type == "master" {
+    (
+      zh: "硕士",
+      zh-student: "硕士研究生",
+      zh-thesis: "硕士学位论文",
+      zh-achievement: "攻读硕士学位期间取得的成果",
+      en: "Master",
+    )
+  } else if degree-type == "doctor" {
+    (
+      zh: "博士",
+      zh-student: "博士研究生",
+      zh-thesis: "博士学位论文",
+      zh-achievement: "攻读博士学位期间取得的成果",
+      en: "Doctor",
+    )
+  } else {
+    panic("degree-type must be 'master' or 'doctor'")
+  }
+}
+
 #let no-numbering-section = (
   [参考文献],
-  [攻读博士学位期间取得的成果],
+  degree-text("master").zh-achievement,  // 默认硕士，实际使用时会被覆盖
   [致谢],
   [作者简介],
 )

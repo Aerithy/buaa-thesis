@@ -3,6 +3,28 @@
 #import "./constant.typ": font-size, font-type
 #import "./utils.typ": distr
 
+#let degree-text(degree-type) = {
+  if degree-type == "master" {
+    (
+      zh: "硕士",
+      zh-student: "硕士研究生",
+      zh-thesis: "硕士学位论文",
+      zh-achievement: "攻读硕士学位期间取得的成果",
+      en: "Master",
+    )
+  } else if degree-type == "doctor" {
+    (
+      zh: "博士",
+      zh-student: "博士研究生",
+      zh-thesis: "博士学位论文",
+      zh-achievement: "攻读博士学位期间取得的成果",
+      en: "Doctor",
+    )
+  } else {
+    panic("degree-type must be 'master' or 'doctor'")
+  }
+}
+
 #let page-break-with-print(is-print: false) = {
   if is-print {
     pagebreak()
@@ -32,7 +54,8 @@
   v(2.5pt)
 }
 
-#let chinese-cover-type() = {
+#let chinese-cover-type(degree-type: "master") = {
+  let dt = degree-text(degree-type)
   set align(alignment.center)
 
   set par(spacing: 1em, leading: 1em)
@@ -42,7 +65,7 @@
   v(0.5cm)
 
   // set type title
-  block(text(size: 48pt, font: "STXingkai", [博士学位论文]))
+  block(text(size: 48pt, font: "STXingkai", dt.zh-thesis))
 }
 
 #let chinese-cover-title(title: "") = {
@@ -93,6 +116,7 @@
   college: "",
   lib-number: "",
   stu-id: "",
+  degree-type: "master",
 ) = {
   // set library number and thesis number
   chinese-cover-leading(lib-number: lib-number, stu-id: stu-id)
@@ -104,7 +128,7 @@
     v(3.5cm - height)
   }
 
-  chinese-cover-type()
+  chinese-cover-type(degree-type: degree-type)
 
   chinese-cover-title(title: title)
 
@@ -172,13 +196,14 @@
   english-cover-college(college: college)
 }
 
-#let title-cover-title(title: "") = {
+#let title-cover-title(title: "", degree-type: "master") = {
+  let dt = degree-text(degree-type)
   set align(alignment.center)
   set par(spacing: 1.25em, leading: 1.25em)
 
   show: show-cn-fakebold
 
-  block(text(size: font-size.small-two, font: font-type.hei, distr("博士学位论文", 11em), lang: "cn"))
+  block(text(size: font-size.small-two, font: font-type.hei, distr(dt.zh-thesis, 11em), lang: "cn"))
 
   v(80pt)
 
@@ -240,13 +265,14 @@
   ),
   lib-number: "",
   stu-id: "",
+  degree-type: "master",
 ) = {
   // set library number and thesis number
   chinese-cover-leading(lib-number: lib-number, stu-id: stu-id)
 
   v(100pt)
 
-  title-cover-title(title: title)
+  title-cover-title(title: title, degree-type: degree-type)
 
   v(150pt)
 
@@ -343,10 +369,11 @@
     summit: "",
     defense: "",
   ),
-  degree: (zh: "工学博士", en: "Doctor of Philosophy"),
+  degree: (zh: "工学硕士", en: "Master of Engineering"),
   lib-number: "",
   stu-id: "",
   is-print: false,
+  degree-type: "master",
 ) = {
   chinese-cover(
     title: title.zh,
@@ -356,6 +383,7 @@
     college: college.zh,
     lib-number: lib-number,
     stu-id: stu-id,
+    degree-type: degree-type,
   )
 
   page-break-with-print(is-print: is-print)
@@ -380,6 +408,7 @@
     date: date,
     lib-number: lib-number,
     stu-id: stu-id,
+    degree-type: degree-type,
   )
   page-break-with-print(is-print: is-print)
 
