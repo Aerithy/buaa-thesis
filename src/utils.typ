@@ -28,7 +28,17 @@
   counter(page).update(1)
 }
 
-#let heading-numbering(..num) = {
+#let show-heading-number = state("show-heading-number", true)
+
+#let disable-heading-number() = {
+  show-heading-number.update(false)
+}
+
+#let heading-numbering(..num) = context {
+  if not show-heading-number.get() {
+    return ""
+  }
+
   if num.pos().len() == 1 {
     return "第" + numbering("一", ..num) + "章  "
   }

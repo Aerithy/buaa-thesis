@@ -347,7 +347,7 @@
     summit: [],
     defense: [],
   ),
-  degree: (zh: [工学硕士], en: [Master of Engineering]),
+  degree: (zh: [], en: []),
   lib-number: [],
   stu-id: [],
   is-print: false,

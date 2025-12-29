@@ -42,10 +42,3 @@
     "Noto Serif CJK SC",
   ),
 )
-
-#let no-numbering-section = (
-  [参考文献],
-  degree-text("master").zh-achievement,
-  [致谢],
-  [作者简介],
-)

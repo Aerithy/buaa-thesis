@@ -5,7 +5,7 @@
 #import "src/header-footer.typ": append-header, leading-footer, main-footer, main-header
 #import "src/main-format.typ": show-main, sub-fig
 #import "src/bib.typ": bib
-#import "src/utils.typ": degree-text, heading-numbering, reset-page
+#import "src/utils.typ": degree-text, disable-heading-number, heading-numbering, reset-page
 #import "src/algorithm.typ": *
 
 #let abstract-render(abstract: [], abstract-en: []) = {
@@ -99,12 +99,13 @@
     summit: [],
     defense: [],
   ),
-  degree: (zh: [工学硕士], en: [Master of Engineering]),
+  degree: (zh: [], en: []),
   degree-type: "master",
   lib-number: [],
   stu-id: [],
   abstract: [],
   abstract-en: [],
+  conclusion: [],
   bibliography: none,
   achievement: [],
   acknowledgements: [],
@@ -146,6 +147,15 @@
     #show: show-main
 
     #body
+
+    #disable-heading-number()
+
+    #if conclusion != [] {
+      [= 总结与展望]
+
+      conclusion
+      pagebreak()
+    }
 
     #show: page.with(header: append-header())
 

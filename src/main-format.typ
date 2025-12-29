@@ -1,7 +1,7 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/subpar:0.2.2"
 
-#import "constant.typ": font-size, font-type, no-numbering-section
+#import "constant.typ": font-size, font-type
 #import "utils.typ": heading-numbering
 
 #let sub-fig = subpar.grid.with(
@@ -30,13 +30,9 @@
     set align(center)
     set par(leading: 1em, spacing: 1em)
 
-    if no-numbering-section.contains(it.body) {
-      it.body
-    } else {
-      v(0.5em)
-      it
-      v(0.5em)
-    }
+    v(0.5em)
+    it
+    v(0.5em)
   }
 
   show heading.where(level: 2): it => {
