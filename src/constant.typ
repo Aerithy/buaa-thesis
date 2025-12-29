@@ -1,5 +1,3 @@
-#import "./utils.typ": degree-text
-
 #let font-size = (
   one: 26pt,
   small-one: 24pt,
