@@ -1,4 +1,4 @@
-#import "src/constant.typ": font-size, font-type
+#import "src/constant.typ": font-size, font-type, thesis-type
 #import "src/cover.typ": cover
 #import "src/abstract.typ": abstract, abstract-en
 #import "src/outlines.typ": heading-outline, image-outline, table-outline
@@ -40,13 +40,13 @@
 }
 
 #let append-render(
+  type: "master",
   bibliography: none,
   achievement: [],
   acknowledgements: [],
   cv: [],
-  degree-type: "master",
 ) = {
-  let dt = degree-text(degree-type)
+  let dt = degree-text(type)
 
   if bibliography != none {
     [= 参考文献]
@@ -82,6 +82,7 @@
 }
 
 #let thesis(
+  type: "master",
   title: (zh: [], en: []),
   author: (zh: [], en: []),
   teacher: (zh: [], en: []),
@@ -100,7 +101,6 @@
     defense: [],
   ),
   degree: (zh: [], en: []),
-  degree-type: "master",
   lib-number: [],
   stu-id: [],
   abstract: [],
@@ -113,10 +113,16 @@
   is-print: false,
   body,
 ) = {
+  if type not in thesis-type.values() {
+    panic("Invalid thesis type: " + type)
+  }
+
+
   set text(size: font-size.small-four, font: font-type.sun, lang: "cn")
   set par(leading: 1.25em, spacing: 1.25em, justify: true)
 
   cover(
+    type: type,
     title: title,
     author: author,
     teacher: teacher,
@@ -128,7 +134,6 @@
     lib-number: lib-number,
     stu-id: stu-id,
     is-print: is-print,
-    degree-type: degree-type,
   )
 
   reset-page()
@@ -141,7 +146,7 @@
 
   reset-page()
 
-  show: page.with(header: main-header(degree-type: degree-type), footer: main-footer())
+  show: page.with(header: main-header(type: type), footer: main-footer())
 
   [
     #show: show-main
@@ -160,11 +165,11 @@
     #show: page.with(header: append-header())
 
     #append-render(
+      type: type,
       bibliography: bibliography,
       achievement: achievement,
       acknowledgements: acknowledgements,
       cv: cv,
-      degree-type: degree-type,
     )
   ]
 }

@@ -1,23 +1,31 @@
 #let degree-text(degree-type) = {
   if degree-type == "master" {
-    (
+    return (
       zh: "硕士",
       zh-student: "硕士研究生",
       zh-thesis: "硕士学位论文",
       zh-achievement: "攻读硕士学位期间取得的成果",
       en: "Master",
     )
-  } else if degree-type == "doctor" {
-    (
-      zh: "博士",
-      zh-student: "博士研究生",
-      zh-thesis: "博士学位论文",
-      zh-achievement: "攻读博士学位期间取得的成果",
-      en: "Doctor",
-    )
-  } else {
-    panic("degree-type must be 'master' or 'doctor'")
   }
+
+  if degree-type == "pro-master" {
+    return (
+      zh: "专业硕士",
+      zh-student: "专业硕士研究生",
+      zh-thesis: "专业硕士学位论文",
+      zh-achievement: "攻读硕士学位期间取得的成果",
+      en: "Professional Master",
+    )
+  }
+
+  return (
+    zh: "博士",
+    zh-student: "博士研究生",
+    zh-thesis: "博士学位论文",
+    zh-achievement: "攻读博士学位期间取得的成果",
+    en: "Doctor",
+  )
 }
 
 #let distr(s, w) = {

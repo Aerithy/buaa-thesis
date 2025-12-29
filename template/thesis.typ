@@ -1,4 +1,4 @@
-﻿#import "../lib.typ": abstract, abstract-en, thesis
+﻿#import "@preview/modern-buaa-thesis:0.1.2": abstract, abstract-en, thesis
 
 #let abstract-zh-text = [
   #show: abstract.with(keyword: ("关键词 1", "关键词 2"))
@@ -13,6 +13,7 @@
 ]
 
 #show: thesis.with(
+  type: "doctor",
   title: (zh: [博士生毕业论文的题目], en: [A Title for PhD Thesis]),
   author: (zh: [张三], en: [San Zhang]),
   teacher: (zh: [李四], en: [Si Li]),
@@ -30,6 +31,7 @@
     summit: [2026年06月10日],
     defense: [2026年06月10日],
   ),
+  degree: (zh: "学术博士", en: "Doctor of Philosophy"),
   lib-number: [TP317],
   stu-id: [BY2406100],
   abstract: abstract-en-text,

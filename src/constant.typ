@@ -42,3 +42,9 @@
     "Noto Serif CJK SC",
   ),
 )
+
+#let thesis-type = (
+  master: "master",
+  pro-master: "pro-master",
+  doctor: "doctor",
+)

@@ -32,8 +32,8 @@
   v(2.5pt)
 }
 
-#let chinese-cover-type(degree-type: "master") = {
-  let dt = degree-text(degree-type)
+#let chinese-cover-type(type: "master") = {
+  let dt = degree-text(type)
   set align(alignment.center)
 
   set par(spacing: 1em, leading: 1em)
@@ -87,6 +87,7 @@
 }
 
 #let chinese-cover(
+  type: "master",
   title: [],
   author: [],
   major: [],
@@ -94,7 +95,6 @@
   college: [],
   lib-number: [],
   stu-id: [],
-  degree-type: "master",
 ) = {
   // set library number and thesis number
   chinese-cover-leading(lib-number: lib-number, stu-id: stu-id)
@@ -106,7 +106,7 @@
     v(3.5cm - height)
   }
 
-  chinese-cover-type(degree-type: degree-type)
+  chinese-cover-type(type: type)
 
   chinese-cover-title(title: title)
 
@@ -174,8 +174,8 @@
   english-cover-college(college: college)
 }
 
-#let title-cover-title(title: [], degree-type: "master") = {
-  let dt = degree-text(degree-type)
+#let title-cover-title(type: "master", title: []) = {
+  let dt = degree-text(type)
   set align(alignment.center)
   set par(spacing: 1.25em, leading: 1.25em)
 
@@ -224,6 +224,7 @@
 }
 
 #let title-cover(
+  type: "master",
   title: [],
   author: [],
   degree: [],
@@ -243,14 +244,13 @@
   ),
   lib-number: [],
   stu-id: [],
-  degree-type: "master",
 ) = {
   // set library number and thesis number
   chinese-cover-leading(lib-number: lib-number, stu-id: stu-id)
 
   v(100pt)
 
-  title-cover-title(title: title, degree-type: degree-type)
+  title-cover-title(title: title, type: type)
 
   v(150pt)
 
@@ -330,6 +330,7 @@
 }
 
 #let cover(
+  type: "master",
   title: (zh: [], en: []),
   author: (zh: [], en: []),
   teacher: (zh: [], en: []),
@@ -351,9 +352,9 @@
   lib-number: [],
   stu-id: [],
   is-print: false,
-  degree-type: "master",
 ) = {
   chinese-cover(
+    type: type,
     title: title.zh,
     author: author.zh,
     major: major.discipline,
@@ -361,7 +362,6 @@
     college: college.zh,
     lib-number: lib-number,
     stu-id: stu-id,
-    degree-type: degree-type,
   )
 
   page-break-with-print(is-print: is-print)
@@ -377,6 +377,7 @@
   page-break-with-print(is-print: is-print)
 
   title-cover(
+    type: type,
     author: author.zh,
     title: title.zh,
     degree: degree.zh,
@@ -386,7 +387,6 @@
     date: date,
     lib-number: lib-number,
     stu-id: stu-id,
-    degree-type: degree-type,
   )
   page-break-with-print(is-print: is-print)
 

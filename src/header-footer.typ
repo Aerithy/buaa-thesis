@@ -49,8 +49,8 @@
   ]
 }
 
-#let main-header(degree-type: "master") = context {
-  let dt = degree-text(degree-type)
+#let main-header(type: "master") = context {
+  let dt = degree-text(type)
   let page-number = here().page()
 
   if calc.odd(page-number) {
