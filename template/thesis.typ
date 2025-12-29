@@ -1,5 +1,4 @@
-﻿#import "../lib.typ": thesis
-#import "../src/abstract.typ": abstract, abstract-en
+﻿#import "@preview/modern-buaa-thesis:0.1.2": abstract, abstract-en, thesis
 
 #let abstract-zh-text = [
   #show: abstract.with(keyword: ("关键词 1", "关键词 2"))
@@ -14,7 +13,7 @@
 ]
 
 #show: thesis.with(
-  title: (zh: "毕业论文的题目", en: "A Title for Thesis"),
+  title: (zh: "博士生毕业论文的题目", en: "A Title for PhD Thesis"),
   author: (zh: "张三", en: "San Zhang"),
   teacher: (zh: "李四", en: "Si Li"),
   teacher-degree: (zh: "教授", en: "Prof."),
@@ -31,8 +30,6 @@
     summit: "2026年06月10日",
     defense: "2026年06月10日",
   ),
-  degree-type: "master",  // 学位类型：可选 "master" (硕士) 或 "doctor" (博士)
-  degree: (zh: "工学硕士", en: "Master of Engineering"),
   lib-number: "TP317",
   stu-id: "BY2406100",
   abstract: abstract-en-text,
@@ -108,58 +105,9 @@ Typst 是一种现代的文档排版语言，旨在简化文档的编写和排�
 
 这是一个行内公式：$E = m c^2$
 
-这是一个行间公式（@mc2）：
+这是一个行间公式：@mc2：
 
 $ E = m c^2 $ <mc2>
-
-=== 更多数学公式示例
-
-*上下标和分数*：$x^2 + y^2 = z^2$，$x_i^2$，分数 $a/b$ 或 $frac(a, b)$
-
-*根号*：$sqrt(x)$，$sqrt(x^2 + y^2)$，$n$ 次根号 $root(n, x)$
-
-*求和与积分*：
-$ sum_(i=1)^n i = frac(n(n+1), 2) $ <sum-formula>
-
-$ integral_0^infinity e^(-x) dif x = 1 $ <integral-formula>
-
-*极限*：
-$ lim_(x -> infinity) (1 + 1/x)^x = e $ <limit-formula>
-
-*矩阵*：
-$ mat(
-  a, b;
-  c, d;
-) quad "或" quad mat(
-  a_(1,1), a_(1,2), dots.c, a_(1,n);
-  a_(2,1), a_(2,2), dots.c, a_(2,n);
-  dots.v, dots.v, dots.down, dots.v;
-  a_(m,1), a_(m,2), dots.c, a_(m,n);
-) $ <matrix-formula>
-
-*方程组*：
-$ cases(
-  x + y = 1,
-  x - y = 0
-) => cases(
-  x = 1/2,
-  y = 1/2
-) $ <equation-system>
-
-*向量与箭头*：$arrow(v)$，$hat(x)$，$tilde(x)$，$dot(x)$，$accent(x, dot.double)$，$arrow(A B)$
-
-*希腊字母*：$alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota, kappa, lambda, mu, nu, xi, pi, rho, sigma, tau, upsilon, phi, chi, psi, omega$
-
-大写：$Gamma, Delta, Theta, Lambda, Xi, Pi, Sigma, Upsilon, Phi, Psi, Omega$
-
-*常用符号*：$in, subset, supset, subset.eq, supset.eq, union, inter, emptyset, times, dot.c, div, plus.minus, equiv, approx, eq.not, lt.eq, gt.eq, infinity, partial, nabla, angle, perp, parallel$
-
-*逻辑符号*：$forall, exists, and, or, not, arrow.r.double, arrow.l.r.double$
-
-*多行公式（对齐）*：
-$ f(x) &= x^2 + 2x + 1 \
-      &= (x + 1)^2 \
-      &= x^2 + 2x + 1 $ <multiline-formula>
 
 == 文献引用
 
