@@ -87,13 +87,13 @@
 }
 
 #let chinese-cover(
-  title: "",
-  author: "",
-  major: "",
-  teacher: "",
-  college: "",
-  lib-number: "",
-  stu-id: "",
+  title: [],
+  author: [],
+  major: [],
+  teacher: [],
+  college: [],
+  lib-number: [],
+  stu-id: [],
   degree-type: "master",
 ) = {
   // set library number and thesis number
@@ -118,7 +118,7 @@
   )
 }
 
-#let english-cover-title(title: "", degree: "") = {
+#let english-cover-title(title: [], degree: []) = {
   // set english title
   block(text(size: font-size.small-two, font: font-type.hei, weight: "bold", lang: "en", title))
 
@@ -133,7 +133,7 @@
   v(114pt)
 }
 
-#let english-cover-info(author: "", teacher: "") = {
+#let english-cover-info(author: [], teacher: []) = {
   set text(size: font-size.small-three, font: font-type.hei, weight: "bold", lang: "en")
   set par(spacing: 1em, leading: 1em, first-line-indent: (amount: 4cm, all: true))
   set align(alignment.left)
@@ -149,7 +149,7 @@
   v(180pt)
 }
 
-#let english-cover-college(college: "") = {
+#let english-cover-college(college: []) = {
   set text(size: font-size.small-three, font: font-type.hei, lang: "en")
   set par(spacing: 1em, leading: 1em)
 
@@ -161,7 +161,7 @@
   ]
 }
 
-#let english-cover(title: "", degree: "", author: "", teacher: "", college: "") = {
+#let english-cover(title: [], degree: [], author: [], teacher: [], college: []) = {
   set page(margin: (top: 6cm, x: 2.5cm, bottom: 3cm))
   set align(alignment.center)
 
@@ -174,7 +174,7 @@
   english-cover-college(college: college)
 }
 
-#let title-cover-title(title: "", degree-type: "master") = {
+#let title-cover-title(title: [], degree-type: "master") = {
   let dt = degree-text(degree-type)
   set align(alignment.center)
   set par(spacing: 1.25em, leading: 1.25em)
@@ -190,21 +190,21 @@
 }
 
 #let title-cover-info(
-  author: "",
-  degree: "",
-  teacher: "",
-  teacher-degree: "",
+  author: [],
+  degree: [],
+  teacher: [],
+  teacher-degree: [],
   major: (
-    discipline: "",
-    direction: "",
-    discipline-first: "",
-    discipline-direction: "",
+    discipline: [],
+    direction: [],
+    discipline-first: [],
+    discipline-direction: [],
   ),
   date: (
-    start: "",
-    end: "",
-    summit: "",
-    defense: "",
+    start: [],
+    end: [],
+    summit: [],
+    defense: [],
   ),
 ) = {
   set text(size: font-size.small-four, font: font-type.sun, lang: "cn")
@@ -224,25 +224,25 @@
 }
 
 #let title-cover(
-  title: "",
-  author: "",
-  degree: "",
-  teacher: "",
-  teacher-degree: "",
+  title: [],
+  author: [],
+  degree: [],
+  teacher: [],
+  teacher-degree: [],
   major: (
-    discipline: "",
-    direction: "",
-    discipline-first: "",
-    discipline-direction: "",
+    discipline: [],
+    direction: [],
+    discipline-first: [],
+    discipline-direction: [],
   ),
   date: (
-    start: "",
-    end: "",
-    summit: "",
-    defense: "",
+    start: [],
+    end: [],
+    summit: [],
+    defense: [],
   ),
-  lib-number: "",
-  stu-id: "",
+  lib-number: [],
+  stu-id: [],
   degree-type: "master",
 ) = {
   // set library number and thesis number
@@ -330,26 +330,26 @@
 }
 
 #let cover(
-  title: (zh: "", en: ""),
-  author: (zh: "", en: ""),
-  teacher: (zh: "", en: ""),
-  teacher-degree: (zh: "", en: ""),
-  college: (zh: "", en: ""),
+  title: (zh: [], en: []),
+  author: (zh: [], en: []),
+  teacher: (zh: [], en: []),
+  teacher-degree: (zh: [], en: []),
+  college: (zh: [], en: []),
   major: (
-    discipline: "",
-    direction: "",
-    discipline-first: "",
-    discipline-direction: "",
+    discipline: [],
+    direction: [],
+    discipline-first: [],
+    discipline-direction: [],
   ),
   date: (
-    start: "",
-    end: "",
-    summit: "",
-    defense: "",
+    start: [],
+    end: [],
+    summit: [],
+    defense: [],
   ),
-  degree: (zh: "工学硕士", en: "Master of Engineering"),
-  lib-number: "",
-  stu-id: "",
+  degree: (zh: [工学硕士], en: [Master of Engineering]),
+  lib-number: [],
+  stu-id: [],
   is-print: false,
   degree-type: "master",
 ) = {

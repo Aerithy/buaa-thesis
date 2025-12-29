@@ -1,32 +1,12 @@
-#import "@preview/subpar:0.2.2"
-
 #import "src/constant.typ": font-size, font-type
 #import "src/cover.typ": cover
 #import "src/abstract.typ": abstract, abstract-en
 #import "src/outlines.typ": heading-outline, image-outline, table-outline
 #import "src/header-footer.typ": append-header, leading-footer, main-footer, main-header
-#import "src/main-format.typ": show-main
+#import "src/main-format.typ": show-main, sub-fig
 #import "src/bib.typ": bib
 #import "src/utils.typ": degree-text, heading-numbering, reset-page
 #import "src/algorithm.typ": *
-
-#let sub-fig = subpar.grid.with(
-  supplement: "图",
-  numbering: it => {
-    let numbers = counter(heading).at(here()).slice(0, 1)
-    numbering("1.1", ..numbers, it)
-  },
-  numbering-sub-ref: (..nums) => {
-    let numbers = counter(heading).at(here()).slice(0, 1)
-    numbering("1.1a", ..numbers, ..nums)
-  },
-  show-sub-caption: (num, it) => {
-    set text(size: font-size.five)
-    set par(leading: 0.8em)
-
-    it
-  },
-)
 
 #let abstract-render(abstract: [], abstract-en: []) = {
   if abstract != [] {
@@ -102,27 +82,27 @@
 }
 
 #let thesis(
-  title: (zh: "", en: ""),
-  author: (zh: "", en: ""),
-  teacher: (zh: "", en: ""),
-  teacher-degree: (zh: "", en: ""),
-  college: (zh: "", en: ""),
+  title: (zh: [], en: []),
+  author: (zh: [], en: []),
+  teacher: (zh: [], en: []),
+  teacher-degree: (zh: [], en: []),
+  college: (zh: [], en: []),
   major: (
-    discipline: "",
-    direction: "",
-    discipline-first: "",
-    discipline-direction: "",
+    discipline: [],
+    direction: [],
+    discipline-first: [],
+    discipline-direction: [],
   ),
   date: (
-    start: "",
-    end: "",
-    summit: "",
-    defense: "",
+    start: [],
+    end: [],
+    summit: [],
+    defense: [],
   ),
-  degree: (zh: "工学硕士", en: "Master of Engineering"),
-  degree-type: "master", // 学位类型：master 或 doctor
-  lib-number: "",
-  stu-id: "",
+  degree: (zh: [工学硕士], en: [Master of Engineering]),
+  degree-type: "master",
+  lib-number: [],
+  stu-id: [],
   abstract: [],
   abstract-en: [],
   bibliography: none,
