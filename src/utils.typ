@@ -1,5 +1,24 @@
-#import "@preview/subpar:0.2.2"
-#import "constant.typ": font-size
+#let degree-text(degree-type) = {
+  if degree-type == "master" {
+    (
+      zh: "硕士",
+      zh-student: "硕士研究生",
+      zh-thesis: "硕士学位论文",
+      zh-achievement: "攻读硕士学位期间取得的成果",
+      en: "Master",
+    )
+  } else if degree-type == "doctor" {
+    (
+      zh: "博士",
+      zh-student: "博士研究生",
+      zh-thesis: "博士学位论文",
+      zh-achievement: "攻读博士学位期间取得的成果",
+      en: "Doctor",
+    )
+  } else {
+    panic("degree-type must be 'master' or 'doctor'")
+  }
+}
 
 #let distr(s, w) = {
   box(width: w, stack(dir: ltr, ..s.clusters().map(x => [#x]).intersperse(1fr)))
@@ -23,20 +42,4 @@
   }
 }
 
-#let sub-fig = subpar.grid.with(
-  supplement: "图",
-  numbering: it => {
-    let numbers = counter(heading).at(here()).slice(0, 1)
-    numbering("1.1", ..numbers, it)
-  },
-  numbering-sub-ref: (..nums) => {
-    let numbers = counter(heading).at(here()).slice(0, 1)
-    numbering("1.1a", ..numbers, ..nums)
-  },
-  show-sub-caption: (num, it) => {
-    set text(size: font-size.five)
-    set par(leading: 0.8em)
 
-    it
-  },
-)
